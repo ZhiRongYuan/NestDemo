@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-11-03 11:23:43
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-11-03 11:35:57
+ * @LastEditTime: 2023-11-29 16:48:28
  * @Description:
  */
 import {
@@ -19,10 +19,15 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigEnum } from 'src/enum/config.enum';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private configService: ConfigService,
+  ) {}
 
   @Post()
   @ApiOperation({
@@ -34,6 +39,8 @@ export class UserController {
 
   @Get()
   findAll() {
+    const db = this.configService.get(ConfigEnum.DB);
+    console.log('config_DB:' + db);
     return this.userService.findAll();
   }
 

@@ -12,7 +12,7 @@ import { generateDocument } from './doc';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.setGlobalPrefix('api/v1');
   // 添加数据校验
   app.useGlobalPipes(new ValidationPipe());
 
