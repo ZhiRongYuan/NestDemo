@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-10-31 11:56:08
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-11-30 10:31:32
+ * @LastEditTime: 2023-11-30 10:58:58
  * @Description:
  */
 import { ValidationPipe } from '@nestjs/common';

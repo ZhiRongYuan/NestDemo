@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-11-29 17:28:46
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-11-30 10:53:26
+ * @LastEditTime: 2023-11-30 11:23:36
  * @Description:
  */
 import { readFileSync } from 'fs';
@@ -21,6 +21,8 @@ const envPath = join(
   dirName,
   `${fnPrefix}.${process.env.NODE_ENV || 'development'}.yml`,
 );
+
+console.log(envPath);
 
 const commonConfig = yaml.load(readFileSync(filePath, 'utf-8'));
 const envConfig = yaml.load(readFileSync(envPath, 'utf-8'));

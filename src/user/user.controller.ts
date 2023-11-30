@@ -21,6 +21,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ConfigEnum } from 'src/enum/config.enum';
+import * as config from 'config';
 
 @Controller('user')
 export class UserController {
@@ -42,6 +43,7 @@ export class UserController {
     // const db = this.configService.get(ConfigEnum.DB);
     // console.log('config_DB:' + db);
     console.log(this.configService.get('db'));
+    console.log(config.get('database'));
     return this.userService.findAll();
   }
 

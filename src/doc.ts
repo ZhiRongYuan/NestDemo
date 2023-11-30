@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-11-01 11:30:12
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-11-01 11:30:22
+ * @LastEditTime: 2023-11-30 11:20:28
  * @Description:
  */
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
