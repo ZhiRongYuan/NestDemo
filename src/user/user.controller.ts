@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-11-03 11:23:43
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-11-29 16:48:28
+ * @LastEditTime: 2023-11-29 17:43:36
  * @Description:
  */
 import {
@@ -39,8 +39,9 @@ export class UserController {
 
   @Get()
   findAll() {
-    const db = this.configService.get(ConfigEnum.DB);
-    console.log('config_DB:' + db);
+    // const db = this.configService.get(ConfigEnum.DB);
+    // console.log('config_DB:' + db);
+    console.log(this.configService.get('db'));
     return this.userService.findAll();
   }
 
