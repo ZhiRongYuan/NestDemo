@@ -1,5 +1,12 @@
 /*
  * @Author: yuanzhirong
+ * @Date: 2023-11-30 10:41:20
+ * @LastEditors: yuanzhirong
+ * @LastEditTime: 2023-12-06 15:27:02
+ * @Description:
+ */
+/*
+ * @Author: yuanzhirong
  * @Date: 2023-11-03 11:23:43
  * @LastEditors: yuanzhirong
  * @LastEditTime: 2023-11-29 17:43:36
@@ -44,6 +51,9 @@ export class UserController {
     // console.log('config_DB:' + db);
     console.log(this.configService.get('db'));
     console.log(config.get('database'));
+
+    const password =
+      process.env.DB_PASS || this.configService.get(ConfigEnum.DB_PASSWORD);
     return this.userService.findAll();
   }
 
