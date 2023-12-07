@@ -2,7 +2,7 @@
  * @Author: yuanzhirong
  * @Date: 2023-11-30 10:40:03
  * @LastEditors: yuanzhirong
- * @LastEditTime: 2023-12-07 14:47:23
+ * @LastEditTime: 2023-12-07 15:20:23
  * @Description:
  */
 import { Module } from '@nestjs/common';
@@ -16,6 +16,9 @@ import * as Joi from 'joi';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigEnum } from './enum/config.enum';
 import { User } from './user/user.entity';
+import { Profile } from './user/profile.entity';
+import { Logs } from './logs/logs.entity';
+import { Roles } from './roles/roles.entity';
 
 const envFilePath = `.env.${process.env.NODE_ENV || 'development'}`;
 @Module({
@@ -49,7 +52,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || 'development'}`;
           username: configService.get(ConfigEnum.DB_USERNAME),
           password: configService.get(ConfigEnum.DB_PASSWORD),
           database: configService.get(ConfigEnum.DB_DATABASE),
-          entities: [User],
+          entities: [User, Profile, Logs, Roles],
           // 同步本地的schema与数据库 -> 初始化的时候去使用
           synchronize: configService.get(ConfigEnum.DB_SYNC),
           logging: ['error'],
